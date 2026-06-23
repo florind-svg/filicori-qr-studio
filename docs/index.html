@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filicori QR Studio</title>
+    <link rel="stylesheet" href="./standalone.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Filicori QR Studio</p>
+        <h1>Generator local pentru QR-ul meniului.</h1>
+        <p class="lede">
+          Ruleaza direct in browser si poate fi publicat gratis pe GitHub Pages.
+        </p>
+      </section>
+
+      <section class="workspace">
+        <form id="qr-form" class="panel">
+          <label for="url">Link</label>
+          <input
+            id="url"
+            name="url"
+            type="url"
+            value="https://filicorizecchini.ro/"
+            required
+          />
+
+          <label for="brand-title">Titlu print</label>
+          <input
+            id="brand-title"
+            name="brandTitle"
+            type="text"
+            value="Scaneaza meniul Filicori"
+          />
+
+          <label for="brand-subtitle">Subtitlu</label>
+          <input
+            id="brand-subtitle"
+            name="brandSubtitle"
+            type="text"
+            value="Acces rapid la toate locatiile Filicori Zecchini"
+          />
+
+          <label for="filename">Nume fisier</label>
+          <input
+            id="filename"
+            name="filename"
+            type="text"
+            value="filicori-menu-qr"
+          />
+
+          <label for="size">Dimensiune QR</label>
+          <select id="size" name="size">
+            <option value="8">Standard</option>
+            <option value="10" selected>Mare</option>
+            <option value="12">Extra mare</option>
+          </select>
+
+          <button type="submit">Genereaza</button>
+          <p id="status" class="status" aria-live="polite"></p>
+        </form>
+
+        <section class="panel preview-panel">
+          <div class="preview-group">
+            <h2>QR simplu</h2>
+            <div id="qr-preview" class="preview empty">
+              <p>Previzualizarea apare aici.</p>
+            </div>
+            <div class="actions">
+              <a id="download-qr-svg" class="action disabled" href="#">Descarca SVG</a>
+              <a id="download-qr-png" class="action disabled" href="#">Descarca PNG</a>
+            </div>
+          </div>
+
+          <div class="preview-group">
+            <h2>Varianta branded</h2>
+            <div id="brand-preview" class="preview empty">
+              <p>Cardul branded apare aici.</p>
+            </div>
+            <div class="actions">
+              <a id="download-brand-svg" class="action disabled" href="#">Descarca card SVG</a>
+              <a id="download-brand-png" class="action disabled" href="#">Descarca card PNG</a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./qrcode.min.js"></script>
+    <script src="./standalone.js"></script>
+  </body>
+</html>
